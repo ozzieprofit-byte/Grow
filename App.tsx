@@ -21,7 +21,7 @@ import {
   Workflow
 } from 'lucide-react';
 
-// --- Types ---
+// --- Global Types ---
 interface Feature {
   id: string;
   title: string;
@@ -46,7 +46,7 @@ interface Testimonial {
   company: string;
 }
 
-// --- Constants ---
+// --- Application Constants ---
 const FEATURES: Feature[] = [
   {
     id: 'ai-scoring',
@@ -114,7 +114,7 @@ const TESTIMONIALS: Testimonial[] = [
     name: "Rajesh Sharma",
     role: "Marketing Director",
     company: "Mumbai Car Bazaar",
-    content: "The Grow Lead Ai Windows client transformed our sales pipeline. We generated 500+ qualified leads in our first week. The app is incredibly fast.",
+    content: "Grow Lead Ai transformed our sales pipeline. We generated 500+ qualified leads in our first week. The Windows app is incredibly fast.",
     avatar: "https://picsum.photos/seed/rajesh/100/100"
   },
   {
@@ -122,7 +122,7 @@ const TESTIMONIALS: Testimonial[] = [
     name: "Sarah Jenkins",
     role: "SaaS Founder",
     company: "CloudScale.io",
-    content: "The AI scoring on the desktop app is spookily accurate. It saved our sales team hundreds of hours by focusing only on high-intent prospects.",
+    content: "The AI scoring on the desktop app is spookily accurate. It saved our sales team hundreds of hours focusing only on high-intent prospects.",
     avatar: "https://picsum.photos/seed/sarah/100/100"
   },
   {
@@ -130,7 +130,7 @@ const TESTIMONIALS: Testimonial[] = [
     name: "David Chen",
     role: "Recruitment Lead",
     company: "Global Talent Partners",
-    content: "The smoothest Windows implementation I've ever experienced. Within 48 hours, we were fully automated and synced with our CRM.",
+    content: "The smoothest implementation I've ever experienced. Within 48 hours, we were fully automated and synced with our CRM.",
     avatar: "https://picsum.photos/seed/david/100/100"
   }
 ];
@@ -262,7 +262,7 @@ const FeaturesGrid = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {FEATURES.map((feature) => (
-            <div key={feature.id} className="bg-white p-10 rounded-[2rem] border border-gray-100 hover:border-blue-200 hover:shadow-xl transition-all group animate-in fade-in duration-500">
+            <div key={feature.id} className="bg-white p-10 rounded-[2rem] border border-gray-100 hover:border-blue-200 hover:shadow-xl transition-all group">
               <div className="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                 {feature.icon}
               </div>
@@ -443,7 +443,7 @@ const Contact = () => {
                       type="text" 
                       required
                       placeholder="John Doe"
-                      className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all outline-none"
+                      className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none"
                       onChange={e => setFormState({...formState, name: e.target.value})}
                     />
                   </div>
@@ -453,25 +453,13 @@ const Contact = () => {
                       type="email" 
                       required
                       placeholder="john@company.com"
-                      className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all outline-none"
+                      className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none"
                       onChange={e => setFormState({...formState, email: e.target.value})}
                     />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2">Message</label>
-                    <textarea 
-                      rows={4} 
-                      placeholder="Describe your current lead volume on Windows"
-                      className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all resize-none outline-none"
-                      onChange={e => setFormState({...formState, message: e.target.value})}
-                    ></textarea>
                   </div>
                   <button type="submit" className="w-full bg-[#10B981] text-white py-5 rounded-2xl font-bold text-lg hover:bg-emerald-600 transition-all flex items-center justify-center shadow-lg">
                     Send Inquiry <ArrowRight className="ml-2 w-5 h-5" />
                   </button>
-                  <p className="text-xs text-gray-400 text-center">
-                    Compliant with Mumbai IT Security Standards.
-                  </p>
                 </form>
               )}
             </div>
@@ -497,55 +485,17 @@ const Footer = () => {
             <p className="text-gray-500 max-w-xs mb-8 leading-relaxed">
               Leading the next generation of sales automation natively on the Windows platform.
             </p>
-            <div className="flex space-x-4">
-              <div className="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center hover:bg-blue-50 transition-colors cursor-pointer">
-                <Globe className="w-5 h-5 text-gray-400" />
-              </div>
-              <div className="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center hover:bg-blue-50 transition-colors cursor-pointer">
-                <Users className="w-5 h-5 text-gray-400" />
-              </div>
-              <div className="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center hover:bg-blue-50 transition-colors cursor-pointer">
-                <Target className="w-5 h-5 text-gray-400" />
-              </div>
-            </div>
           </div>
-
           <div>
             <h4 className="font-bold text-gray-900 mb-6 uppercase tracking-wider text-xs">Product</h4>
             <ul className="space-y-4 text-gray-500 text-sm font-medium">
               <li><a href="#" className="hover:text-blue-600 transition-colors">Windows Client</a></li>
-              <li><a href="#" className="hover:text-blue-600 transition-colors">Integrations</a></li>
               <li><a href="#" className="hover:text-blue-600 transition-colors">Pricing</a></li>
-              <li><a href="#" className="hover:text-blue-600 transition-colors">Documentation</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-gray-900 mb-6 uppercase tracking-wider text-xs">Company</h4>
-            <ul className="space-y-4 text-gray-500 text-sm font-medium">
-              <li><a href="#" className="hover:text-blue-600 transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-blue-600 transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-blue-600 transition-colors">Contact</a></li>
-              <li><a href="#" className="hover:text-blue-600 transition-colors">Press Kit</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-gray-900 mb-6 uppercase tracking-wider text-xs">Legal</h4>
-            <ul className="space-y-4 text-gray-500 text-sm font-medium">
-              <li><a href="#" className="hover:text-blue-600 transition-colors">Privacy</a></li>
-              <li><a href="#" className="hover:text-blue-600 transition-colors">Terms</a></li>
-              <li><a href="#" className="hover:text-blue-600 transition-colors">SLA</a></li>
-              <li><a href="#" className="hover:text-blue-600 transition-colors">GDPR</a></li>
             </ul>
           </div>
         </div>
-
         <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-gray-100 gap-6">
-          <p className="text-gray-400 text-sm">© 2026 Grow Lead Ai for Windows. Built for performance in Mumbai, India.</p>
-          <div className="flex items-center space-x-6 text-sm text-gray-400">
-            <span>Desktop API: <span className="text-emerald-500 font-bold">Stable (v4.2)</span></span>
-          </div>
+          <p className="text-gray-400 text-sm">© 2026 Grow Lead Ai for Windows. Built for performance.</p>
         </div>
       </div>
     </footer>
@@ -554,7 +504,6 @@ const Footer = () => {
 
 const ExitIntentPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 0) {
@@ -565,77 +514,47 @@ const ExitIntentPopup = () => {
     document.addEventListener('mouseleave', handleMouseLeave);
     return () => document.removeEventListener('mouseleave', handleMouseLeave);
   }, []);
-
   if (!isVisible) return null;
-
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-300">
-      <div className="bg-white max-w-lg w-full rounded-[2.5rem] p-12 relative shadow-2xl animate-in zoom-in-95 duration-300">
-        <button 
-          onClick={() => setIsVisible(false)}
-          className="absolute top-6 right-6 p-2 text-gray-400 hover:text-black transition-colors"
-        >
+      <div className="bg-white max-w-lg w-full rounded-[2.5rem] p-12 relative shadow-2xl">
+        <button onClick={() => setIsVisible(false)} className="absolute top-6 right-6 p-2 text-gray-400 hover:text-black">
           <X className="w-6 h-6" />
         </button>
-        
         <div className="text-center">
-          <div className="w-20 h-20 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
-            <Download className="w-10 h-10" />
-          </div>
-          <h3 className="text-3xl font-extrabold text-gray-900 mb-4 tracking-tight">Don't Leave Yet!</h3>
-          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-            Grab our exclusive <span className="font-bold text-blue-600">"Windows Lead Gen Masterclass"</span> PDF guide for free before you go.
-          </p>
-          
-          <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); setIsVisible(false); }}>
-            <input 
-              type="email" 
-              required
-              placeholder="Enter your work email"
-              className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none transition-all"
-            />
-            <button className="w-full bg-[#1E3A8A] text-white py-5 rounded-2xl font-bold text-lg hover:bg-blue-800 transition-all shadow-lg">
-              Download Guide Free
-            </button>
-          </form>
-          <p className="mt-6 text-xs text-gray-400">Exclusive desktop marketing insights from Grow Lead Ai.</p>
+          <h3 className="text-3xl font-extrabold text-gray-900 mb-4">Don't Leave Yet!</h3>
+          <p className="text-lg text-gray-600 mb-8">Grab our exclusive <span className="font-bold text-blue-600">"Windows Lead Gen Masterclass"</span> for free.</p>
+          <button className="w-full bg-[#1E3A8A] text-white py-5 rounded-2xl font-bold text-lg">Download Guide Free</button>
         </div>
       </div>
     </div>
   );
 };
 
-// --- Main App ---
 export default function App() {
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
-    // Simulate initial loading to ensure everything is ready
     const timer = setTimeout(() => setLoading(false), 300);
     return () => clearTimeout(timer);
   }, []);
-
   if (loading) {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-white z-[999]">
         <div className="flex flex-col items-center">
           <div className="w-12 h-12 border-4 border-blue-100 border-t-blue-600 rounded-full animate-spin mb-4"></div>
-          <span className="text-sm font-bold text-gray-400 tracking-widest uppercase text-center">Grow Lead Ai<br/><span className="text-[10px]">Desktop Edition</span></span>
+          <span className="text-sm font-bold text-gray-400 tracking-widest uppercase">Grow Lead Ai</span>
         </div>
       </div>
     );
   }
-
   return (
-    <div className="min-h-screen bg-white selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-white">
       <Navbar />
-      <main>
-        <Hero />
-        <FeaturesGrid />
-        <Testimonials />
-        <Pricing />
-        <Contact />
-      </main>
+      <Hero />
+      <FeaturesGrid />
+      <Testimonials />
+      <Pricing />
+      <Contact />
       <Footer />
       <ExitIntentPopup />
     </div>
