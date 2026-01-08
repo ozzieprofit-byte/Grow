@@ -1,0 +1,8 @@
+{
+  "name": "Grow Lead Ai - AI Lead Generation",
+  "description": "Premium SaaS landing page for Grow Lead Ai, featuring AI-powered lead capture, automated nurturing, and seamless CRM integrations optimized for Windows.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
